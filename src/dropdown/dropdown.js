@@ -194,9 +194,13 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
   };
 
   scope.focusDropdownEntry = function(keyCode) {
+    var tabbableSelector = 'a[href], area[href], input:not([disabled]):not([tabindex=\'-1\']), ' +
+        'button:not([disabled]):not([tabindex=\'-1\']),select:not([disabled]):not([tabindex=\'-1\']), textarea:not([disabled]):not([tabindex=\'-1\']), ' +
+        'iframe, object, embed, *[tabindex]:not([tabindex=\'-1\']), *[contenteditable=true]';
     var elems = self.dropdownMenu ? //If append to body is used.
-      angular.element(self.dropdownMenu).find('a') :
-      $element.find('ul').eq(0).find('a');
+        // this usage of .find won't work with jqLite.
+      angular.element(self.dropdownMenu).find(tabbableSelector) :
+      $element.find('ul').eq(0).find(tabbableSelector);
 
     switch (keyCode) {
       case 40: {
