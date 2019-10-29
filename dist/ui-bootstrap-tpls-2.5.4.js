@@ -3382,7 +3382,6 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.
       return;
     }
 
-    openScope.focusToggleElement();
     openScope.isOpen = false;
 
     if (!$rootScope.$$phase) {
@@ -5245,7 +5244,7 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
 
               if (tooltip) {
                 tooltip.remove();
-                
+
                 tooltip = null;
                 if (adjustmentTimeout) {
                   $timeout.cancel(adjustmentTimeout);
@@ -5253,7 +5252,7 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.s
               }
 
               openedTooltips.remove(ttScope);
-              
+
               if (tooltipLinkedScope) {
                 tooltipLinkedScope.$destroy();
                 tooltipLinkedScope = null;
